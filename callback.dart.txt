@@ -1,0 +1,32 @@
+typedef valuegetter<T>=T Function();
+typedef valuesetter<T>= void Function(int v);
+
+main (List<String> args){ 
+
+  receiver().load();
+}
+class caller{
+  
+  final valuegetter<int> valuecall;
+  final valuesetter<int> valuerec;
+
+  caller(this.valuecall, this.valuerec);
+  
+  loop(){
+    
+     for(int i=0;i<100;i++){
+       valuerec(i);
+      print(valuecall());
+    }
+  }
+  
+}
+class receiver{
+   valuegetter<int> valuecall;
+  valuesetter<int> valuerec;
+    load(){
+      int ii=0;
+   caller(()=>ii,(int i)=>print('set----------->${ii=i}')).loop();
+  }
+  
+}
